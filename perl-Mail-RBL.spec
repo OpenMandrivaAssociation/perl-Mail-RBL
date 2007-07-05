@@ -1,6 +1,6 @@
 %define	module	Mail-RBL
 %define	name	perl-%{module}
-%define	version	1.09
+%define	version	1.10
 %define	release	%mkrel 1
 
 Name:		%{name}
