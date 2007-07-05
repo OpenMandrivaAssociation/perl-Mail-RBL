@@ -30,6 +30,8 @@ This module eases the task of checking if a given host is in the list.
 %make
 
 %check
+# some RBL can't be queries from build host
+export SKIP_RBL_TESTS=1
 %{__make} test
 
 %install
