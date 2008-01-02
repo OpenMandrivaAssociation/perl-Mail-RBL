@@ -17,6 +17,7 @@ BuildRequires:	perl-devel
 BuildRequires:	perl(NetAddr::IP)
 BuildRequires:  perl(Net::DNS)
 Buildarch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This module eases the task of checking if a given host is in the list. 
