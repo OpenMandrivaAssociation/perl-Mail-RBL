@@ -1,29 +1,29 @@
-%define	module	Mail-RBL
-%define	name	perl-%{module}
-%define	version	1.10
-%define	release	%mkrel 4
+%define	upstream_name	 Mail-RBL
+%define	upstream_version 1.10
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Perl extension to access RBL-style host verification services
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/Mail/%{module}-%{version}.tar.bz2
-Url:            http://search.cpan.org/dist/%{module}/
+Url:        http://search.cpan.org/dist/%{upstream_name}/
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Mail/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildRequires:	perl(NetAddr::IP)
 BuildRequires:  perl(Net::DNS)
 Buildarch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module eases the task of checking if a given host is in the list. 
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -46,5 +46,3 @@ rm -rf %{buildroot}
 %doc README
 %{perl_vendorlib}/Mail
 %{_mandir}/*/*
-
-
